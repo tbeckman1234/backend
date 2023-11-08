@@ -15,11 +15,6 @@ const loginUser = async (req, res) => {
         // create a token
         const token = createToken(user._id)
 
-        res.setHeader("Access-Control-Allow-Origin", "https://mern-frontend-umber.vercel.app/")
-        res.header(
-            "Access-Control-Allow-Headers",
-            "Origin, X-Requested-With, Content-Type, Accept"
-        )
         res.status(200).json({email, token})
     } catch (error) {
         res.status(400).json({error: error.message})
