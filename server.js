@@ -5,8 +5,6 @@ const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
 
-export default function handler(req,res) {
-
 // initialize express app
 const app = express()
 
@@ -24,6 +22,7 @@ app.use((req, res, next) => {
 app.use('/api/workouts', workoutRoutes)
 app.use('/api/user', userRoutes)
 
+export default function establishConnection() {
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
@@ -35,5 +34,4 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => {
         console.log(error)
     })
-
 }
