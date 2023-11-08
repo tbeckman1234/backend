@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
 
+export default function handler(req,res) {
 
 // initialize express app
 const app = express()
@@ -35,3 +36,4 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(error)
     })
 
+}
