@@ -12,8 +12,10 @@ const app = express()
 //middleware
 app.use(express.json())
 
+// enable cors
+app.use(cors())
+
 app.use((req, res, next) => {
-    app.use(cors())
     console.log(req.path, req.method)
     next()
 })
