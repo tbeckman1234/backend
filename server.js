@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
 
@@ -12,11 +13,7 @@ const app = express()
 app.use(express.json())
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://mern-frontend-umber.vercel.app")
-    res.header("Access-Control-Allow-Headers", "X-Requested-With, X-Auth-Token, Content-Type, Content-Length, Authorization, Access-Control-Allow-Headers, Accept, Access-Control-Allow-Methods, Access-Control-Allow-Origin, Access-Control-Allow-Credentials")
-    res.header("Access-Control-Allow-Credentials", "true")
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS")
-    res.header("Vary", "Accept-Encoding, Origin")
+    app.use(cors())
     console.log(req.path, req.method)
     next()
 })
