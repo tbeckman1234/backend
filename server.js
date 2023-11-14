@@ -14,6 +14,7 @@ app.use(express.json())
 
 // enable cors
 app.use(cors())
+app.options('*', cors())
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
