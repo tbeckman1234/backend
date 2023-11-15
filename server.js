@@ -14,6 +14,7 @@ app.use(express.json())
 
 // enable cors
 app.use(cors({
+    origin: "https://mern-frontend-umber.vercel.app",
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'OPTIONS'],
 }))
