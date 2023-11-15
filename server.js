@@ -13,7 +13,9 @@ const app = express()
 app.use(express.json())
 
 // enable CORS
-app.use(cors())
+app.use(cors({
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}))
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
