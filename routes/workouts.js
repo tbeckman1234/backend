@@ -13,6 +13,7 @@ const router = express.Router()
 
 // enable cors for all routes
 router.use(cors())
+router.options('*', cors())
 
 // require auth for all workout routes
 router.use(requireAuth)
