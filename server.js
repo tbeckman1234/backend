@@ -21,7 +21,6 @@ app.use((req, res, next) => {
 })
 
 // route handler
-app.options('*', cors())
 app.use('/api/workouts', workoutRoutes)
 app.use('/api/user', userRoutes)
 
