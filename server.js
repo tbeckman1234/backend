@@ -5,15 +5,6 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
-const corsWhiteList = ['https://mern-frontend-umber.vercel.app/api/workouts','https://mern-frontend-umber.vercel.app/']
-const corsOptions = (req, callback) => {
-    if (corsWhiteList.indexOf(req.header('Origin')) !== -1) {
-        corsOptions = { origin: true }
-    } else {
-        corsOptions = { origin: false }
-    }
-    callback(null, corsOptions)
-}
 
 // initialize express app
 const app = express()
@@ -22,9 +13,9 @@ const app = express()
 app.use(express.json())
 
 // enable CORS
-//app.use(cors(corsOptions))
+app.use(cors())
 
-app.use( cors(corsOptions), (req, res, next) => {
+app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
