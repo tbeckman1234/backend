@@ -14,7 +14,7 @@ app.use(express.json())
 
 // enable CORS
 app.use(cors({
-    origin: ['https://mern-frontend-umber.vercel.app/']
+    origin: ['https://mern-frontend-umber.vercel.app']
 }))
 
 app.use((req, res, next) => {
