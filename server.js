@@ -25,8 +25,8 @@ app.use((req, res, next) => {
 })
 
 // route handler
-app.use('/api/workouts', workoutRoutes)
-app.use('/api/user', userRoutes)
+app.use('/api/workouts', cors(), workoutRoutes)
+app.use('/api/user', cors(), userRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
