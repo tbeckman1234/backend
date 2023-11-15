@@ -13,11 +13,10 @@ const app = express()
 app.use(express.json())
 
 // enable CORS
-app.use(cors({
-    optionsSuccessStatus: '206',
-}))
+app.use(cors())
 
 app.use((req, res, next) => {
+    res.json({msg: 'This is CORS-enabled for all origins!'})
     console.log(req.path, req.method)
     next()
 })
