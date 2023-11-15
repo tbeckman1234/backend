@@ -15,7 +15,7 @@ app.use(express.json())
 // enable cors
 app.use(cors({
     credentials: true,
-    accessControlAllowMethods: 'GET, POST, OPTIONS'
+    methods: ['GET', 'PUT', 'POST', 'OPTIONS'],
 }))
 
 app.use((req, res, next) => {
