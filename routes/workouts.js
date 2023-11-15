@@ -11,8 +11,8 @@ const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
-// enable pre-flight request for POST request
-router.options('/', cors())
+// enable cors for all routes
+router.use(cors())
 
 // require auth for all workout routes
 router.use(requireAuth)
@@ -24,7 +24,7 @@ router.get('/', getWorkouts)
 router.get('/:id', getWorkout)
 
 // POST a new workout
-router.post('/', cors(), createWorkout)
+router.post('/', createWorkout)
 
 // DELETE workout
 router.delete('/:id', deleteWorkout)
