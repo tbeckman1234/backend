@@ -12,17 +12,18 @@ const app = express()
 //middleware
 app.use(express.json())
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Methods','GET, POST, PATCH, DELETE');
+    console.log(req.path, req.method)
+    next()
+})
+
 // enable cors
 app.use(cors({
     origin: "https://mern-frontend-umber.vercel.app",
     credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'OPTIONS'],
+    methods: ['GET', 'PUT', 'POST', 'OPTIONS', 'DELETE'],
 }))
-
-app.use( cors(), (req, res, next) => {
-    console.log(req.path, req.method)
-    next()
-})
 
 // route handler
 app.use('/api/workouts', workoutRoutes)
