@@ -11,6 +11,9 @@ const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
 
+// enable pre-flight request for POST request
+router.options('/', cors())
+
 // require auth for all workout routes
 router.use(requireAuth)
 
