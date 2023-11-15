@@ -1,5 +1,4 @@
 const express = require('express')
-const cors = require('cors')
 const { 
     getWorkouts,
     getWorkout,
@@ -10,10 +9,6 @@ const {
 const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
-
-// enable cors for all routes
-router.use(cors())
-router.options('*', cors())
 
 // require auth for all workout routes
 router.use(requireAuth)
