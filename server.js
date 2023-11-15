@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 })
 
 // route handler
+app.options('/api/workouts', cors()) // enable preflight request for POST request
 app.use('/api/workouts', workoutRoutes)
 app.use('/api/user', userRoutes)
 
