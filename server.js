@@ -14,7 +14,6 @@ app.use(express.json())
 
 // enable CORS
 app.use(cors())
-app.options('*', cors()) // enable preflight request
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)

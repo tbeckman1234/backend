@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const { 
     getWorkouts,
     getWorkout,
@@ -20,7 +21,7 @@ router.get('/', getWorkouts)
 router.get('/:id', getWorkout)
 
 // POST a new workout
-router.post('/', createWorkout)
+router.post('/', cors(), createWorkout)
 
 // DELETE workout
 router.delete('/:id', deleteWorkout)
