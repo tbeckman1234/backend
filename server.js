@@ -13,7 +13,9 @@ const app = express()
 app.use(express.json())
 
 // enable CORS
-app.use(cors())
+app.use(cors({
+    origin: ['https://mern-frontend-umber.vercel.app/']
+}))
 
 app.use((req, res, next) => {
     res.json({msg: 'This is CORS-enabled for all origins!'})
