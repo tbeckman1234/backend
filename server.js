@@ -14,6 +14,9 @@ app.use(express.json())
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods','GET, POST, PATCH, DELETE');
+    res.json({
+        text: "Complex CORS requests are working. [POST]"
+    })
     console.log(req.path, req.method)
     next()
 })
