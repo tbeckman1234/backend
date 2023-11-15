@@ -22,9 +22,9 @@ const app = express()
 app.use(express.json())
 
 // enable CORS
-app.use(cors(corsOptions))
+//app.use(cors(corsOptions))
 
-app.use((req, res, next) => {
+app.use( cors(corsOptions), (req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
