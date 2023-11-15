@@ -10,12 +10,10 @@ const userRoutes = require('./routes/user')
 const app = express()
 
 //middleware
-app.use(express.json())
+//app.use(express.json())
 
 // enable CORS
-app.use(cors({
-    origin: ['*']
-}))
+app.use(cors())
 
 app.use((req, res, next) => {
     res.json({msg: 'This is CORS-enabled for all origins!'})
